@@ -12,7 +12,7 @@ import AVFoundation
 
 class AVPlayerViewController: UIViewController {
     
-    let videoURL =  URL(string: "1")!
+    let videoURL =  URL(string: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8")!
     let txtField = UITextField()
     let playbutton = UIButton(type: .system)
     let muteButton = UIButton(type: .system)
@@ -24,64 +24,104 @@ class AVPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
-        txtField.frame = CGRect(x: 10, y: 20, width: self.view.frame.size.width - 30, height: 30)
-        txtField.backgroundColor = UIColor.white
-        txtField.text = "Enter URL of Video"
-        self.view.addSubview(txtField)
-        txtField.addObserver(self, forKeyPath: "changeURL", options: .old, context: nil)
-       
+        self.view.backgroundColor = UIColor.black
         
+        setTextField()
         
-        //設定playbtn
-        playbutton.frame = CGRect(x: 20, y: self.view.frame.size.height - 31, width: 40, height: 19)
-        playbutton.tintColor = UIColor.white
-        playbutton.setTitle("Play", for: .normal)
-        playbutton.addTarget(self, action: #selector(playorstop), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(playbutton)
+        setPlaybutton()
         
-        //設定muteButton
+        setMutebutton()
         
-        muteButton.frame = CGRect(x: self.view.frame.width - 53, y: self.view.frame.size.height - 31, width: 50, height: 19)
-        muteButton.tintColor = UIColor.white
-        muteButton.setTitle("Mute", for: .normal)
-        muteButton.addTarget(self, action: #selector(muteorNot(sender:)), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(muteButton)
-
+        setAVplayer(url: videoURL)
         
+        self.view.bringSubview(toFront: muteButton)
         
-        txtField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        self.view.bringSubview(toFront: txtField)
         
-        avplayer = AVPlayer(url: videoURL)
+        self.view.bringSubview(toFront: playbutton)
+        
+    }
+    func setAVplayer(url:URL){
+        
+        avplayer = AVPlayer(url: url)
+        
         let playerLayer = AVPlayerLayer(player: avplayer)
+        
         playerLayer.frame = self.view.bounds
+        
         playerLayer.backgroundColor = UIColor.black.cgColor
-       
         
         self.view.layer.addSublayer(playerLayer)
-        self.view.bringSubview(toFront: muteButton)
-        self.view.bringSubview(toFront: txtField)
-        self.view.bringSubview(toFront: playbutton)
+        
+    }
+    func setTextField() {
+        
+        txtField.frame = CGRect(x: 10, y: 20, width: self.view.frame.size.width - 30, height: 30)
+        
+        txtField.backgroundColor = UIColor.white
+        
+        txtField.text = "Enter URL of Video"
+        
+        self.view.addSubview(txtField)
+        
+        txtField.addObserver(self, forKeyPath: "changeURL", options: .old, context: nil)
+        
+        txtField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    func setPlaybutton() {
+        
+        playbutton.frame = CGRect(x: 20, y: self.view.frame.size.height - 31, width: 40, height: 19)
+        
+        playbutton.tintColor = UIColor.white
+        
+        playbutton.setTitle("Play", for: .normal)
+        
+        playbutton.addTarget(self, action: #selector(playorstop), for: UIControlEvents.touchUpInside)
+        
+        self.view.addSubview(playbutton)
+        
+    }
+    
+    func setMutebutton() {
+        
+        muteButton.frame = CGRect(x: self.view.frame.width - 53, y: self.view.frame.size.height - 31, width: 50, height: 19)
+        
+        muteButton.tintColor = UIColor.white
+        
+        muteButton.setTitle("Mute", for: .normal)
+        
+        muteButton.addTarget(self, action: #selector(muteorNot(sender:)), for: UIControlEvents.touchUpInside)
+        
+        self.view.addSubview(muteButton)
         
     }
     
     func playorstop(sender: UIButton){
         
         if playcounter {
+            
             DispatchQueue.main.async {
+                
                 self.avplayer.pause()
+                
                 self.playcounter = false
+                
             }
             self.playbutton.setTitle("Stop", for: .normal)
             return
+            
         } else {
+            
             DispatchQueue.main.async {
+                
                 self.avplayer.play()
+                
                 self.playcounter = true
+                
             }
             self.playbutton.setTitle("Play", for: .normal)
-
-            
+        
         }
         
     }
@@ -96,7 +136,6 @@ class AVPlayerViewController: UIViewController {
             self.muteButton.setTitle("Sound", for: .normal)
             return
         } else {
-            
             DispatchQueue.main.async {
                 self.avplayer.isMuted = false
                 self.mutecounter = true
