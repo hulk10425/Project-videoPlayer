@@ -15,6 +15,7 @@
 		BE71F2281F5FC3E50020E606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE71F2261F5FC3E50020E606 /* LaunchScreen.storyboard */; };
 		BE71F2321F5FC5050020E606 /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71F2311F5FC5050020E606 /* AVPlayerViewController.swift */; };
 		BE71F2341F5FC57A0020E606 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71F2331F5FC57A0020E606 /* AVPlayer.swift */; };
+		BE71F2361F5FD3E70020E606 /* bipbopall.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = BE71F2351F5FD3E70020E606 /* bipbopall.m3u8 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BE71F2291F5FC3E50020E606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE71F2311F5FC5050020E606 /* AVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVPlayerViewController.swift; path = ../AVPlayerViewController.swift; sourceTree = "<group>"; };
 		BE71F2331F5FC57A0020E606 /* AVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
+		BE71F2351F5FD3E70020E606 /* bipbopall.m3u8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bipbopall.m3u8; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				BE71F2311F5FC5050020E606 /* AVPlayerViewController.swift */,
+				BE71F2351F5FD3E70020E606 /* bipbopall.m3u8 */,
 				BE71F21A1F5FC3E50020E606 /* AppDelegate.swift */,
 				BE71F21C1F5FC3E50020E606 /* ViewController.swift */,
 				BE71F21E1F5FC3E50020E606 /* Main.storyboard */,
@@ -135,6 +138,7 @@
 			files = (
 				BE71F2281F5FC3E50020E606 /* LaunchScreen.storyboard in Resources */,
 				BE71F2251F5FC3E50020E606 /* Assets.xcassets in Resources */,
+				BE71F2361F5FD3E70020E606 /* bipbopall.m3u8 in Resources */,
 				BE71F2201F5FC3E50020E606 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
