@@ -12,7 +12,7 @@ import AVFoundation
 
 class AVPlayerViewController: UIViewController {
     
-    let videoURL =  URL(string: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8")!
+    let videoURL =  URL(string: "1")!
     let txtField = UITextField()
     let playbutton = UIButton(type: .system)
     let muteButton = UIButton(type: .system)
