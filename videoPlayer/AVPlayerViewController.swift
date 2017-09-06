@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AVPlayerViewController.swift
 //  videoPlayer
 //
 //  Created by 陳遵丞 on 2017/9/6.
@@ -7,21 +7,36 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class AVPlayerViewController: UIViewController {
+    
+    
+    
+    var playerLayer: AVPlayerLayer?
+    
+    var playerItem:AVPlayerItem!
+    var avplayer:AVPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
 
-
+   
+    
     
     
 }
-
